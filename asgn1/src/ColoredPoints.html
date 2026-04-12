@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+
+  <body onload="main()">
+    <img id="dogRef" src="../triangle_dog.jpg" width="400" alt="Triangle dog reference drawing" style="display:none">
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <p id="numdot">
+      XXX
+    </p>
+
+    <p>
+    <button type="button" id="drawDog">Draw Dog</button>
+    </p>
+
+    <p>
+    <button type="button" id="green">Green</button>
+    <button type="button" id="red">Red</button>
+    <button type="button" id="clear">Clear</button>
+    </p>
+
+    <p>
+    <button type="button" id="point">Point</button>
+    <button type="button" id="triangle">Triangle</button>
+    <button type="button" id="circle">Circle</button>
+    <button type="button" id="sprayOn">Spray On</button>
+    <button type="button" id="sprayOff">Spray Off</button>
+    </p>
+
+    <p>
+      Red <input type="range" min="0" max"100" value"100" class="slider" id="redSlide">
+    </p>
+    <p>
+      Green <input type="range" min="0" max"100" value"100" class="slider" id="greenSlide">
+    </p>
+    <p>
+      Blue <input type="range" min="0" max"100" value"100" class="slider" id="blueSlide">
+    </p>
+    <p>
+      Size <input type="range" min="5" max"40" value"0" class="slider" id="sizeSlide">
+    </p>
+    <p>
+      Circle Segment Size <input type="range" min="5" max"100" value"0" class="slider" id="circle_seg_size">
+    </p>
+    <p>
+      Spray Radius <input type="range" min="1" max="50" value="10" class="slider" id="sprayRadius">
+    </p>
+    <p>
+      Spray Fill <input type="range" min="1" max="30" value="5" class="slider" id="sprayFill">
+    </p>
+    <p>Spray mode: hit Spray On, then click and drag on the canvas. Radius controls how wide the spray is, Fill controls how many shapes per stroke.</p>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="Point.js"></script>
+    <script src="ColoredPoints.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="drawDog.js"></script>
+    <script src="Circle.js"></script>
+  </body>
+</html>
