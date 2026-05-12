@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Virtual World</title>
+  <style>
+    #crosshair {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black, -1px -1px 2px black;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="800" height="600">WebGL not supported</canvas>
+  <div id="crosshair">+</div>
+  <p>Click to capture mouse &nbsp;|&nbsp; W/S = fwd/back &nbsp; A/D = strafe &nbsp; Q/E = rotate &nbsp; Left-click = delete &nbsp; Right-click = add &nbsp; Esc = release</p>
+  <p>FPS: <span id="fps">--</span></p>
+
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix.js"></script>
+  <script src="src/VoxelWorld.js"></script>
+</body>
+</html>
