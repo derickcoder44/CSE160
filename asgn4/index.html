@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Assignment 4: Lighting</title>
+  <style>
+    body { background: #111; color: #eee; font-family: monospace; }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="900" height="600">WebGL not supported</canvas>
+  <div id="crosshair" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:24px; pointer-events:none;">+</div>
+
+  <p>
+    <button onclick="toggleLighting()" id="btnLighting">Lighting: ON</button>
+    <button onclick="toggleNormals()"  id="btnNormals">Show Normals: OFF</button>
+    <button onclick="togglePointLight()" id="btnPoint">Point Light: ON</button>
+    <button onclick="toggleSpot()"    id="btnSpot">Spot Light: OFF</button>
+    <button onclick="toggleOrbit()"   id="btnOrbit">Auto Orbit: ON</button>
+  </p>
+  <p>
+    Orbit Angle: <input type="range" id="sldAngle" min="0" max="360" value="0"
+      oninput="g_lightAngle=this.value*Math.PI/180; g_autoOrbit=false;">
+    &nbsp;
+    Light Height: <input type="range" id="sldLY" min="1" max="16" value="6" step="0.5"
+      oninput="g_lightPos[1]=+this.value;">
+  </p>
+  <p>
+    Light R: <input type="range" id="sldR" min="0" max="255" value="255" oninput="updateLightColor();">
+    Light G: <input type="range" id="sldG" min="0" max="255" value="255" oninput="updateLightColor();">
+    Light B: <input type="range" id="sldB" min="0" max="255" value="255" oninput="updateLightColor();">
+  </p>
+  <p>
+    Spot Cutoff (deg): <input type="range" id="sldCut" min="5" max="60" value="30"
+      oninput="g_spotCutoff=Math.cos(this.value*Math.PI/180);">
+    Spot X: <input type="range" id="sldSX" min="2" max="30" value="16" step="0.5"
+      oninput="g_spotPos[0]=+this.value;">
+    Spot Z: <input type="range" id="sldSZ" min="2" max="30" value="10" step="0.5"
+      oninput="g_spotPos[2]=+this.value;">
+  </p>
+  <p>FPS: <span id="fps">--</span> &nbsp;|&nbsp; Click canvas to capture mouse | W/S fwd/back | A/D strafe | Q/E rotate | LMB remove | RMB add</p>
+
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix.js"></script>
+  <script src="src/World.js"></script>
+</body>
+</html>
